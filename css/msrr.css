@@ -1,0 +1,13 @@
+*{
+	font-family: 微軟正黑體;
+}
+body{
+	
+}
+.jumbotron{
+	text-shadow: .03em .03em 0 black;
+}
+.content{
+	margin: 50px auto;
+	max-width: 960px;
+}

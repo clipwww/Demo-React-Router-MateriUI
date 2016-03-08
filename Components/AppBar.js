@@ -36,6 +36,7 @@ var AppBar = React.createClass({
                   open={this.state.open}
                   onRequestChange={open => this.setState({open})} >
                     <Appbar title="Menu" iconClassNameLeft="muidocs-icon-action-home"/>
+                    <MenuItem leftIcon={<ActionGrade />} onTouchTap={this.handleClose} href="#">首頁</MenuItem>
                     <MenuItem leftIcon={<ActionGrade />} onTouchTap={this.handleClose} href="#pageOne">第一頁</MenuItem>
                     <MenuItem leftIcon={<ActionGrade />} onTouchTap={this.handleClose} href="#pageTwo">第二頁</MenuItem>
                 </LeftNav>

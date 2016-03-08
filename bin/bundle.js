@@ -129,7 +129,7 @@ var Home = React.createClass({
 		return { data: [] };
 	},
 	componentDidMount: function componentDidMount() {
-		$.getJSON("../data/result.json", function (data) {
+		$.getJSON("data/result.json", function (data) {
 			this.setState({ data: data });
 		});
 	},

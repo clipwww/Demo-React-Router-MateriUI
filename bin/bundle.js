@@ -69,6 +69,11 @@ var AppBar = _react2['default'].createClass({
                 _react2['default'].createElement(_materialUiLibAppBar2['default'], { title: 'Menu', iconClassNameLeft: 'muidocs-icon-action-home' }),
                 _react2['default'].createElement(
                     _materialUiLibMenusMenuItem2['default'],
+                    { leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsActionGrade2['default'], null), onTouchTap: this.handleClose, href: '#' },
+                    '首頁'
+                ),
+                _react2['default'].createElement(
+                    _materialUiLibMenusMenuItem2['default'],
                     { leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsActionGrade2['default'], null), onTouchTap: this.handleClose, href: '#pageOne' },
                     '第一頁'
                 ),
@@ -129,18 +134,18 @@ var Home = React.createClass({
 		return { data: [] };
 	},
 	componentDidMount: function componentDidMount() {
-		$.getJSON("../data/result.json", function (data) {
-			this.setState({ data: data });
-		});
+		$.getJSON("data/result.json", (function (result) {
+			this.setState({ data: result });
+		}).bind(this));
 	},
 	render: function render() {
 		var Cards = this.state.data.map(function (data) {
 			return React.createElement(
 				_materialUiLibCardCard2['default'],
-				null,
+				{ key: data.id, className: 'content' },
 				React.createElement(_materialUiLibCardCardHeader2['default'], {
 					title: data.id,
-					subtitle: data.rend_id,
+					subtitle: data.rand_id,
 					avatar: data.img }),
 				React.createElement(
 					_materialUiLibCardCardMedia2['default'],
@@ -164,7 +169,7 @@ var Home = React.createClass({
 		});
 		return React.createElement(
 			'div',
-			{ className: 'content' },
+			null,
 			Cards
 		);
 	}

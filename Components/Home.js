@@ -14,17 +14,17 @@ var Home = React.createClass({
 		return {data: []};
 	},
 	componentDidMount: function(){
-		$.getJSON("../data/result.json", function(data){
-			this.setState({data: data});
-		})		
+		$.getJSON("data/result.json", function(result){
+			this.setState({data: result});
+		}.bind(this));
 	},
 	render: function () {
 		var Cards = this.state.data.map(function(data){
 			return(
-				<Card>
+				<Card key={data.id} className="content">
 					<CardHeader
 					title={data.id}
-					subtitle={data.rend_id}
+					subtitle={data.rand_id}
 					avatar={data.img} />
 					<CardMedia
 					overlay={<CardTitle title={data.title} subtitle="Overlay subtitle" />} >
@@ -42,7 +42,7 @@ var Home = React.createClass({
 			);
 		});
 		return (
-			<div className="content">
+			<div >
 				{Cards}
 			</div>
 		);
